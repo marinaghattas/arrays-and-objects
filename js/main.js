@@ -1,3 +1,5 @@
+var myArray = [];// create a blank array
+
 function bubble(){
     this.x = random(width);
     this.y = random(height);
@@ -6,39 +8,32 @@ function bubble(){
 
     //method: draw the bubble
     this.drawBubble = function(){
+        fill('pink');
     ellipse(this.x, this.y, this.bubbleSize, this.bubbleSize);
     }
 } // end bubble
-
-
-
-
-
 
 function setup(){
     var cnv = createCanvas(windowWidth,windowHeight);
     cnv.parent("windows");
 
-    var myArray = []; // create a blank array
 
-    for(var i=0; i<10; i++){
+    for(var i=0; i<100; i++){
 
         myArray[i] = new bubble();
         myArray[i].drawBubble();
     }
 
-    console.log(myArray);
-
-    for(var i=0; i < myArray.length; i++){
-
-
-        console.log(myArray[i]);
-
-    }
-    console.log(myArray);
-//   console.log("myArray",myArray);
-//    console.log(myArray[0]);
-//    console.log(myArray[1]);
-//    console.log(myArray[2]);
-//    console.log(myArray);
 } //end setup
+
+
+function mousePressed(){
+
+    console.log("mouse Pressed");
+    var d;
+   for(var i=0; i < myArray.length; i++){
+
+d = dist(mouseX,mouseY,myArray[i].x,myArray[i].y); console.log("distance",d);
+
+   }
+}
